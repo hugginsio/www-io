@@ -26,7 +26,10 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/ui", "@nuxtjs/google-fonts"],
   nitro: {
+    prerender: {
+      autoSubfolderIndex: false,
+    },
     static: true,
   },
-  ssr: true,
+  ssr: false,
 });
