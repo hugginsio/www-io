@@ -15,13 +15,13 @@ importers:
         specifier: 3.2.0
         version: 3.2.0(magicast@0.3.5)(rollup@4.27.4)
       nuxt:
-        specifier: ^3.14.1592
+        specifier: 3.14.1592
         version: 3.14.1592(@parcel/watcher@2.5.0)(@types/node@22.10.1)(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.27.4)(terser@5.36.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(terser@5.36.0))
       vue:
-        specifier: latest
+        specifier: 3.5.13
         version: 3.5.13(typescript@5.7.2)
       vue-router:
-        specifier: latest
+        specifier: 4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.7.2))
     devDependencies:
       autoprefixer:
