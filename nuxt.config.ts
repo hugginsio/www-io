@@ -24,7 +24,7 @@ export default defineNuxtConfig({
       "JetBrains Mono": [400, 700],
     },
   },
-  modules: ["@nuxt/ui", "@nuxtjs/google-fonts"],
+  modules: ["@nuxt/icon", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   nitro: {
     prerender: {
       autoSubfolderIndex: false,

@@ -2,6 +2,8 @@ html,
 body,
 #__nuxt,
 #__layout {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     height: 100% !important;
     width: 100% !important;
 }
