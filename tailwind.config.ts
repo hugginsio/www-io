@@ -11,7 +11,7 @@ export default <Partial<Config>>{
     },
     fontFamily: {
       sans: [
-        "Inter",
+        "Geist",
         "ui-sans-serif",
         "system-ui",
         "sans-serif",

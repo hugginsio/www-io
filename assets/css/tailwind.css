@@ -4,10 +4,22 @@
 
 @layer base {
     .colors-primary {
-        @apply bg-primary-50 text-primary-900;
+        @apply bg-primary-50 text-primary-950;
     }
 
     .colors-primary-invert {
-        @apply bg-primary-900 text-primary-50;
+        @apply bg-primary-950 text-primary-50;
+    }
+
+    a {
+        @apply underline underline-offset-2 decoration-2 duration-200 ease-linear;
+    }
+
+    .colors-primary a {
+        @apply decoration-primary-400 hover:decoration-primary-950;
+    }
+
+    .colors-primary-invert a {
+        @apply decoration-primary-400 hover:decoration-primary-50;
     }
 }

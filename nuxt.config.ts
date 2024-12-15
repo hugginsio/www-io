@@ -20,8 +20,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   googleFonts: {
     families: {
-      Inter: [400, 700, 900],
-      "JetBrains Mono": [400, 700],
+      "JetBrains Mono": [400],
+      Geist: [400, 600, 700],
     },
   },
   modules: ["@nuxt/icon", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],

@@ -8,15 +8,13 @@ const props = defineProps({
 
 <template>
     <NuxtLayout>
-        <div class="flex flex-col space-y-4">
-            <div class="w-full flex flex-col space-y-4 font-bold">
-                <span class="text-5xl font-bold">Error {{ props.error?.statusCode }}</span>
-                <span class="p-3 rounded colors-primary-invert flex items-center uppercase font-mono space-x-6">
-                    <NuxtLink to="/">Home</NuxtLink>
-                </span>
-            </div>
+        <Hero>
+            <span class="-ml-1 text-6xl font-bold tracking-tight">Error {{ props.error?.statusCode }}</span>
+            <span>{{ props.error?.statusMessage }}</span>
+        </Hero>
+        <div>
             <div>
-                <p class="prose">{{ props.error?.statusMessage }}</p>
+                <NuxtLink to="/">Go Home</NuxtLink>
             </div>
         </div>
     </NuxtLayout>
