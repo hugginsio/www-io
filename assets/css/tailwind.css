@@ -4,11 +4,11 @@
 
 @layer base {
     .colors-primary {
-        @apply bg-primary-50 text-primary-950;
+        @apply bg-primary-50 text-black;
     }
 
     .colors-primary-invert {
-        @apply bg-primary-950 text-primary-50;
+        @apply bg-black text-primary-50;
     }
 
     a {
@@ -16,10 +16,10 @@
     }
 
     .colors-primary a {
-        @apply decoration-primary-400 hover:decoration-primary-950;
+        @apply decoration-primary-400 hover:decoration-black;
     }
 
     .colors-primary-invert a {
-        @apply decoration-primary-400 hover:decoration-primary-50;
+        @apply decoration-primary-500 hover:decoration-primary-50;
     }
 }
