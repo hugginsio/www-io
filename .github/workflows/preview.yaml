@@ -10,6 +10,11 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     name: "Build & Release"
+    permissions:
+      contents: read
+      deployments: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
