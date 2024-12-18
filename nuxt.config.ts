@@ -13,6 +13,18 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "shortcut icon", type: "image/x-icon", href: "/favicon.ico" },
       ],
+      meta: [
+        {
+          name: "theme-color",
+          content: "#FAFAFA",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          name: "theme-color",
+          content: "#000000",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
     },
   },
   compatibilityDate: "2024-11-01",
@@ -20,11 +32,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   googleFonts: {
     families: {
-      Inter: [400, 700, 900],
       "JetBrains Mono": [400, 700],
+      Inter: [400, 600, 700],
     },
   },
-  modules: ["@nuxt/ui", "@nuxtjs/google-fonts"],
+  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   nitro: {
     prerender: {
       autoSubfolderIndex: false,

@@ -1,0 +1,68 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+    html,
+    body,
+    #__nuxt,
+    #__layout {
+        @apply selection:bg-emerald-300;
+    }
+
+    .colors-primary {
+        @apply bg-primary-50 text-black;
+    }
+
+    .colors-primary .gray {
+        @apply text-primary-600;
+    }
+
+    .colors-primary-invert {
+        @apply bg-black text-primary-50;
+    }
+
+    .colors-primary-invert .gray {
+        @apply text-primary-300;
+    }
+
+    a {
+        @apply underline underline-offset-2 decoration-1 duration-100 ease-linear;
+    }
+
+    .colors-primary a {
+        @apply decoration-primary-400 hover:decoration-black;
+    }
+
+    .colors-primary .gray a {
+        @apply hover:text-black;
+    }
+
+    .colors-primary-invert a {
+        @apply decoration-primary-400 hover:decoration-primary-50;
+    }
+
+    .colors-primary-invert .gray a {
+        @apply hover:text-primary-50;
+    }
+
+    .prose h1 {
+        @apply text-6xl font-bold;
+    }
+
+    .prose h2 {
+        @apply text-4xl font-bold;
+    }
+
+    .prose h3 {
+        @apply text-2xl font-bold;
+    }
+
+    .prose h4 {
+        @apply text-lg font-semibold;
+    }
+
+    .prose h4 a {
+        @apply decoration-2;
+    }
+}
