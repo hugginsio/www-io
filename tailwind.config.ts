@@ -11,7 +11,7 @@ export default <Partial<Config>>{
     },
     fontFamily: {
       sans: [
-        "Geist",
+        "Inter",
         "ui-sans-serif",
         "system-ui",
         "sans-serif",
@@ -33,5 +33,4 @@ export default <Partial<Config>>{
       ],
     },
   },
-  plugins: [require("@tailwindcss/typography")],
 };

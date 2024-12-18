@@ -32,11 +32,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   googleFonts: {
     families: {
-      "JetBrains Mono": [400],
-      Geist: [400, 600, 700],
+      "JetBrains Mono": [400, 700],
+      Inter: [400, 600, 700],
     },
   },
-  modules: ["@nuxt/icon", "@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss"],
   nitro: {
     prerender: {
       autoSubfolderIndex: false,

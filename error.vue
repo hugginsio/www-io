@@ -8,10 +8,7 @@ const props = defineProps({
 
 <template>
     <NuxtLayout>
-        <Hero>
-            <span class="-ml-1 text-6xl font-bold tracking-tight">Error {{ props.error?.statusCode }}</span>
-            <span>{{ props.error?.statusMessage }}</span>
-        </Hero>
+        <Hero :title="`Error ${props.error?.statusCode}`" :tagline="props.error?.statusMessage" />
         <div>
             <div>
                 <NuxtLink to="/">Go Home</NuxtLink>
