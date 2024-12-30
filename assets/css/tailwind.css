@@ -19,11 +19,11 @@
     }
 
     .colors-primary-invert {
-        @apply bg-black text-primary-50;
+        @apply bg-black text-white;
     }
 
     .colors-primary-invert .gray {
-        @apply text-primary-300;
+        @apply text-primary-400;
     }
 
     a {
