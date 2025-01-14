@@ -25,6 +25,7 @@ export default defineNuxtConfig({
           media: "(prefers-color-scheme: dark)",
         },
       ],
+      title: "Kyle Huggins",
     },
   },
   compatibilityDate: "2024-11-01",
