@@ -24,7 +24,12 @@ export default defineNuxtConfig({
           content: "#000000",
           media: "(prefers-color-scheme: dark)",
         },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1, viewport-fit=cover",
+        },
       ],
+      title: "Kyle Huggins",
     },
   },
   compatibilityDate: "2024-11-01",
