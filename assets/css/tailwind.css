@@ -7,7 +7,7 @@
     body,
     #__nuxt,
     #__layout {
-        @apply selection:bg-emerald-300;
+        @apply selection:bg-emerald-300 selection:text-white;
     }
 
     .colors-primary {
