@@ -8,6 +8,7 @@
     #__nuxt,
     #__layout {
         @apply selection:bg-emerald-300 selection:text-white;
+        @apply bg-primary-50 text-black dark:bg-black dark:text-white;
     }
 
     .colors-primary {
