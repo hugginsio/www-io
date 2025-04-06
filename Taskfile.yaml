@@ -1,0 +1,9 @@
+# https://taskfile.dev
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: 3
+
+tasks:
+  sitegen:
+    desc: run sitegen
+    cmd: go run ./cmd/sitegen/
