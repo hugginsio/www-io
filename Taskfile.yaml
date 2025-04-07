@@ -3,7 +3,21 @@
 
 version: 3
 
+interval: 100ms
+
 tasks:
+  dev:
+    desc: automatic sitegen & serve
+    watch: true
+    sources:
+      - "internal/**/*"
+    deps:
+      - serve
   sitegen:
     desc: run sitegen
     cmd: go run ./cmd/sitegen/
+  serve:
+    desc: run serve
+    deps:
+      - sitegen
+    cmd: go run ./cmd/serve/
