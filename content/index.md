@@ -1,8 +1,7 @@
 ---
 layout: default
+subheading: huggins.io
 ---
-
-# huggins.io.
 
 ## Name
 

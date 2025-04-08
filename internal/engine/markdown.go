@@ -5,9 +5,11 @@ import (
 	"bytes"
 	"errors"
 	"io/fs"
+	"log"
 	"path/filepath"
 	"strings"
 
+	"github.com/goccy/go-yaml"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/ast"
 	"github.com/gomarkdown/markdown/html"
@@ -17,9 +19,18 @@ import (
 type MarkdownEngine struct {
 	document    ast.Node
 	extensions  parser.Extensions
-	frontmatter string
+	frontmatter Frontmatter
 	info        fs.FileInfo
 	renderer    markdown.Renderer
+}
+
+type Frontmatter struct {
+	Date       string
+	Layout     string
+	Published  bool
+	Subheading string
+	Tags       []string
+	Title      string
 }
 
 // The markdown engine parses and renders markdown files (to HTML by default) while extracting document frontmatter.
@@ -66,7 +77,12 @@ func (e *MarkdownEngine) Parse(contents []byte, info fs.FileInfo) {
 		e.document = parser.Parse(contents)
 	} else {
 		e.document = parser.Parse(bufferMarkdown.Bytes())
-		e.frontmatter = bufferYaml.String()
+		var frontmatter Frontmatter
+		if err := yaml.Unmarshal(bufferYaml.Bytes(), &frontmatter); err != nil {
+			log.Println("WARN failed to parse frontmatter:", err)
+		}
+
+		e.frontmatter = frontmatter
 	}
 }
 
@@ -83,6 +99,7 @@ func (e *MarkdownEngine) Render() ([]byte, error) {
 		return nil, errors.New("renderer is nil")
 	}
 
+	// TODO: merge generated HTML partial from markdown render with page layouts
 	// TODO: minify generated html
 
 	return markdown.Render(e.document, e.renderer), nil
