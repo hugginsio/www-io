@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+@theme {
+    --font-sans: ui-sans-serif, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-serif: ui-serif, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+    --foreground: #c9d1d9;
+    --background: #0d1117;
+}
+
+@media screen and (prefers-color-scheme: light) {
+    :root {
+        --foreground: #24292f;
+        --background: #ffffff;
+    }
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--font-mono);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+}

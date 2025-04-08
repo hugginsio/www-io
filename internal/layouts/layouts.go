@@ -13,7 +13,7 @@ type Layout struct {
 
 // TODO: what am I doing
 type LayoutProvider interface {
-	Layout() gomponents.Node
+	Node() gomponents.Node
 }
 
 func Base(title string, description string, head []gomponents.Node, body []gomponents.Node) gomponents.Node {

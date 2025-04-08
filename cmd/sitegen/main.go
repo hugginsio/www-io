@@ -2,59 +2,64 @@ package main
 
 import (
 	"errors"
-	"fmt"
 	"io/fs"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 
-	"git.huggins.io/www/internal/layouts"
-	"maragu.dev/gomponents"
-	"maragu.dev/gomponents/html"
+	"git.huggins.io/www/internal/engine"
 )
 
 func main() {
 	log.Println("sitegen is starting")
+	Preflight()
 
+	inputPath := "content/"
+	if err := filepath.Walk(inputPath, func(path string, info fs.FileInfo, err error) error {
+		if path == inputPath {
+			return nil
+		}
+
+		log.Println("Processing", path)
+
+		raw, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+
+		// TODO: content engine determination should probably be in the engine package
+		var ce engine.Engine
+		switch filepath.Ext(info.Name()) {
+		case ".md":
+			ce = engine.Markdown()
+		default:
+			ce = engine.Default()
+		}
+
+		ce.Parse(raw, info)
+		outputPath := strings.Replace(path, inputPath, "_output/", 1)
+		outputPath = strings.Replace(outputPath, filepath.Base(outputPath), ce.Name(), 1)
+		content, err := ce.Render()
+		if err != nil {
+			return err
+		}
+
+		if err := os.WriteFile(outputPath, content, 0755); err != nil {
+			return err
+		}
+
+		return nil
+	}); err != nil {
+		log.Fatalln(err)
+	}
+
+	log.Println("thanks for flying sitegen")
+}
+
+func Preflight() {
 	Delete("_output")
 	Directory("_output", 0755)
-
-	// TODO: replace with pages-based markdown-driven page & path generation
-	// TODO: optimize HTML & css
-	pages := map[string]gomponents.Node{
-		"index": layouts.Base(
-			"Kyle Huggins",
-			"Software engineer & Kubernetes enthusiast. Occasional photographer.",
-			[]gomponents.Node{},
-			[]gomponents.Node{
-				html.H1(
-					gomponents.Text(strings.ToUpper("huggins.io.")),
-				),
-				html.H2(
-					gomponents.Text(strings.ToUpper("Name")),
-				),
-				html.H2(
-					gomponents.Text(strings.ToUpper("Description")),
-				),
-				html.H2(
-					gomponents.Text(strings.ToUpper("See Also")),
-				),
-			},
-		),
-	}
-
-	for name, page := range pages {
-		filepath := fmt.Sprintf("_output/%s.html", name)
-		f := File(filepath)
-		defer f.Close()
-
-		log.Println("rendering", filepath)
-
-		if err := page.Render(f); err != nil {
-			log.Fatalln(err)
-		}
-	}
-
 }
 
 func Delete(path string) {
