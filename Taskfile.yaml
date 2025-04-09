@@ -4,6 +4,9 @@
 version: 3
 
 tasks:
+  default:
+    deps:
+      - dev
   dev:
     desc: watch
     watch: true
