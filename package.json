@@ -1,0 +1,14 @@
+{
+  "name": "www-io",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "gen": "npx @tailwindcss/cli -m -i src/styles.css -o _output/styles.css"
+  },
+  "author": "Kyle Huggins",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "@tailwindcss/cli": "4.1.3",
+    "tailwindcss": "4.1.3"
+  }
+}

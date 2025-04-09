@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@media screen and (prefers-color-scheme: light) {
+    :root {
+        --foreground: #00000;
+        --background: #ffffff;
+    }
+}
+
+@layer theme {
+    :root {
+        --foreground: #ffffff;
+        --background: #000000;
+    }
+}
+
+@layer base {
+    html,
+    body {
+        height: 100%;
+        font-family: "JetBrains Mono", monospace;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--background);
+        color: var(--foreground);
+    }
+
+    article {
+        @apply px-4 pt-4 max-w-5xl;
+    }
+
+    article > section {
+        @apply pb-4;
+    }
+
+    article > section > div {
+        @apply pl-4;
+    }
+
+    ul {
+        @apply list-none list-inside;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: bold;
+        letter-spacing: -0.025em;
+        text-transform: uppercase;
+    }
+
+    a {
+        @apply underline;
+    }
+
+    header {
+        @apply flex px-4 pt-2 max-w-5xl;
+    }
+
+    header h1 {
+        font-weight: normal;
+    }
+
+    header > div:nth-child(2) {
+        @apply grow text-center hidden sm:block;
+    }
+
+    header > div::nth-child(odd) {
+        @apply flex-none;
+    }
+
+    header > div:last-child {
+        @apply hidden sm:block;
+    }
+}

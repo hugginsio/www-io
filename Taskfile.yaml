@@ -1,0 +1,15 @@
+# https://taskfile.dev
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: 3
+
+tasks:
+  dev:
+    desc: watch
+    watch: true
+    sources:
+      - src/**
+    cmds:
+      - "rm -rf _output/"
+      - "cp -r src/ _output/"
+      - "npm run gen"
