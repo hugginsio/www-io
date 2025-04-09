@@ -3,7 +3,7 @@
 @media screen and (prefers-color-scheme: light) {
     :root {
         --foreground: #00000;
-        --background: #ffffff;
+        --background: #fafafa;
     }
 }
 
