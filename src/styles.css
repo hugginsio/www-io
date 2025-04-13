@@ -2,8 +2,9 @@
 
 @media screen and (prefers-color-scheme: light) {
     :root {
-        --foreground: #00000;
+        --foreground: #000000;
         --background: #fafafa;
+        --midground: #919191;
     }
 }
 
@@ -11,24 +12,25 @@
     :root {
         --foreground: #ffffff;
         --background: #000000;
+        --midground: #6f6f6f;
     }
 }
 
 @layer base {
     html,
     body {
-        height: 100%;
+        @apply h-full;
         font-family: "JetBrains Mono", monospace;
     }
 
     body {
-        margin: 0;
+        @apply m-0 flex flex-col;
         background-color: var(--background);
         color: var(--foreground);
     }
 
-    article {
-        @apply px-4 pt-4 max-w-5xl;
+    main {
+        @apply px-4 pt-4 max-w-5xl mb-auto;
     }
 
     article > section {
@@ -49,9 +51,7 @@
     h4,
     h5,
     h6 {
-        font-weight: bold;
-        letter-spacing: -0.025em;
-        text-transform: uppercase;
+        @apply font-bold tracking-tight uppercase;
     }
 
     a {
@@ -59,11 +59,12 @@
     }
 
     header {
-        @apply flex px-4 pt-2 max-w-5xl;
+        @apply flex px-4 pt-4 max-w-5xl;
     }
 
-    header h1 {
-        font-weight: normal;
+    header h1,
+    footer h1 {
+        @apply font-normal;
     }
 
     header > div:nth-child(2) {
@@ -76,5 +77,17 @@
 
     header > div:last-child {
         @apply hidden sm:block;
+    }
+
+    footer {
+        @apply flex px-4 pb-4 max-w-5xl text-sm;
+    }
+
+    footer h1 {
+        @apply grow;
+    }
+
+    footer p {
+        color: var(--midground);
     }
 }
